@@ -1,0 +1,52 @@
+POST http://localhost:3001/api/blogs HTTP/1.1
+content-type: application/json
+
+{
+  "author": "P.Ziskas",
+  "url": "https://www.amazon.com",
+  "title": "TUC",
+  "likes": 0
+}
+
+###
+POST http://localhost:3001/api/blogs HTTP/1.1
+content-type: application/json
+
+{
+  "author": "M.Manarwlh",
+  "url": "https://www.instagram.com",
+  "title": "Panepisthmio Aigiou"
+}
+
+###
+POST http://localhost:3001/api/blogs HTTP/1.1
+content-type: application/json
+
+
+{
+  "author": "E.Manarwlh",
+  "url": "https://www.instagram.com",
+  "title": "Panepisthmio Hrakleiou"
+}
+
+###
+POST http://localhost:3001/api/blogs HTTP/1.1
+content-type: application/json
+
+
+{
+  "author": "E.Manarwlh",
+  "url": "https://www.instagram.com",
+  "title": "Panepisthmio Hrakleiou",
+  "likes" : 50
+}
+
+###
+POST http://localhost:3001/api/blogs HTTP/1.1
+content-type: application/json
+
+
+{
+  "author": "E.Manarwlh",
+  "likes" : 50
+}
