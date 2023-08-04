@@ -2,3 +2,9 @@ PUT http://localhost:3001/api/users/mm HTTP/1.1
 content-type: application/json
 
 {  "username": "Mairy"}
+
+###
+PUT http://localhost:3001/api/users/ilves HTTP/1.1
+content-type: application/json
+
+{  "username": "newilves"}

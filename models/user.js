@@ -14,6 +14,9 @@ User.init({
     type: DataTypes.STRING,
     unique: true,
     allowNull: false,
+    validate: {
+      isEmail: true,
+    },
   },
   name: {
     type: DataTypes.STRING,
@@ -22,6 +25,9 @@ User.init({
   passwordHash: {
     type: DataTypes.STRING(60),
     allowNull: false,
+    validate: {
+      is: /\$[a-z0-9-]+\$[0-9A-Za-z./+=,$-]+$/i,
+    },
   },
 }, {
   sequelize,

@@ -1,35 +1,23 @@
 const blogsRouter = require('express').Router();
-const jwt = require('jsonwebtoken')
-const { SECRET } = require('../util/config')
+const { tokenExtractor } = require('../util/middleware');
 
 const { Blog } = require('../models');
 const { User } = require('../models');
 
-const tokenExtractor = (req, res, next) => {
-  const authorization = req.get('authorization')
-  if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
-    try {
-      req.decodedToken = jwt.verify(authorization.substring(7), SECRET)
-    } catch{
-      return res.status(401).json({ error: 'token invalid' })
-    }
-  }  else {
-    return res.status(401).json({ error: 'token missing' })
-  }
-  next()
-}
+
 
 const blogFinder = async (req, res, next) => {
   req.blog = await Blog.findByPk(req.params.id);
   next();
 };
 
+
 blogsRouter.get('/', async (req, res) => {
   const blogs = await Blog.findAll({
     attributes: { exclude: ['userId'] },
     include: {
       model: User,
-      attributes: ['name']
+      attributes: ['username','name','id']
     }
   });
   res.json(blogs);
@@ -37,6 +25,7 @@ blogsRouter.get('/', async (req, res) => {
 
 blogsRouter.post('/', tokenExtractor, async (req, res) => {
   try{
+    console.log(req)
     const user = await User.findByPk(req.decodedToken.id)
     const blog = await Blog.create({...req.body, userId: user.id});
     res.json(blog);
@@ -48,15 +37,18 @@ blogsRouter.post('/', tokenExtractor, async (req, res) => {
   
 });
 
-blogsRouter.delete('/:id', blogFinder, async (req, res) => {
+blogsRouter.delete('/:id', [blogFinder,tokenExtractor], async (req, res) => {
+
+  const user = await User.findByPk(req.decodedToken.id);
   const { blog } = req;
 
-  if (blog) {
-    
-    await req.blog.destroy()
-    res.status(204).end();
-  } else {
+  if (!blog) {
     res.status(404).end();
+  } else if (!user || user.id !== blog.userId) {
+    res.status(401).json({ error: 'Unathorized user to delete this blog' });
+  } else {
+    await blog.destroy();
+    res.status(204).end();
   }
 });
 

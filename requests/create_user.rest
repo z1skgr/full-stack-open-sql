@@ -28,7 +28,39 @@ content-type: application/json
 
 
 {
-  "username": "czisk",
+
+}
+
+###
+POST http://localhost:3001/api/users HTTP/1.1
+content-type: application/json
+
+
+{
+  "username": "czisks",
   "name" : "Christos Ziskas",
   "password":"TUC"
+}
+
+
+###
+POST http://localhost:3001/api/users HTTP/1.1
+content-type: application/json
+
+
+{
+  "username": "cre4t0r@yahoo.gr",
+  "name" : "Chris Ziskas",
+  "password":"nba"
+}
+
+###
+POST http://localhost:3001/api/users HTTP/1.1
+content-type: application/json
+
+
+{
+  "username": "cziskas@tuc.gr",
+  "name" : "Ziskas Christos",
+  "password":"nba"
 }
