@@ -3,3 +3,13 @@ GET http://localhost:3001/api/blogs
 
 ###
 GET http://localhost:3001/api/blogs/2
+
+###
+GET http://localhost:3001/api/blogs?search=MANARWLH
+
+###
+GET http://localhost:3001/api/blogs?search=PANEPISTHMIO
+
+
+###
+GET http://localhost:3001/api/blogs?search=PA

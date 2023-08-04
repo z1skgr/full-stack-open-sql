@@ -4,7 +4,7 @@ const { tokenExtractor } = require('../util/middleware');
 const { Blog } = require('../models');
 const { User } = require('../models');
 
-
+const { Op } = require("sequelize");
 
 const blogFinder = async (req, res, next) => {
   req.blog = await Blog.findByPk(req.params.id);
@@ -13,19 +13,29 @@ const blogFinder = async (req, res, next) => {
 
 
 blogsRouter.get('/', async (req, res) => {
+  const where = {}
+
+  if (req.query.search) {
+    where.title = {
+      [Op.iLike]: `${req.query.search}%`
+    }
+  }
+  
+
   const blogs = await Blog.findAll({
     attributes: { exclude: ['userId'] },
     include: {
       model: User,
       attributes: ['username','name','id']
-    }
+    },  
+    where
   });
   res.json(blogs);
 });
 
 blogsRouter.post('/', tokenExtractor, async (req, res) => {
   try{
-    console.log(req)
+    //console.log(req)
     const user = await User.findByPk(req.decodedToken.id)
     const blog = await Blog.create({...req.body, userId: user.id});
     res.json(blog);
@@ -63,7 +73,7 @@ blogsRouter.get('/:id', blogFinder, async (req, res) => {
 blogsRouter.put('/:id', blogFinder, async (req, res) => {
   const { blog } = req;
 
-  console.log(req.blog)
+  //console.log(req.blog)
 
   if (blog) {
     blog.likes = req.body.likes
