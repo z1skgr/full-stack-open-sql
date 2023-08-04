@@ -19,7 +19,7 @@ blogsRouter.get('/', async (req, res) => {
     where[Op.or] = [
       { title: { [Op.iLike]: `%${req.query.search}%` }},
       { author: { [Op.iLike]: `%${req.query.search}%` }}
-    ]  
+    ]
   }
   
 
@@ -29,7 +29,8 @@ blogsRouter.get('/', async (req, res) => {
       model: User,
       attributes: ['username','name','id']
     },  
-    where
+    where,
+    order:[['likes', 'DESC']],
   });
   res.json(blogs);
 });
