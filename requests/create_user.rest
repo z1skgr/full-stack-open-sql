@@ -1,0 +1,34 @@
+###
+POST http://localhost:3001/api/users HTTP/1.1
+content-type: application/json
+
+
+{
+  "username": "ilves",
+  "name" : "Kalle Lives",
+  "password":"Allys"
+}
+
+
+###
+POST http://localhost:3001/api/users HTTP/1.1
+content-type: application/json
+
+
+{
+  "username": "mm",
+  "name" : "MManarwlh",
+  "password":"mpd"
+}
+
+
+###
+POST http://localhost:3001/api/users HTTP/1.1
+content-type: application/json
+
+
+{
+  "username": "czisk",
+  "name" : "Christos Ziskas",
+  "password":"TUC"
+}
