@@ -100,3 +100,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1NY
   "likes" : 10000
 }
 
+###  
+POST http://localhost:3001/api/blogs HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1NYW5hcndsaEBhcHRoLmdyIiwiaWQiOjEsImlhdCI6MTY5MTQwMDY2NH0._fHIcHyYxh3IhshaMWKucLfaepmz3rg_wuf9-VH-rzU
+
+{
+  "author": "MM.Manarwlh",
+  "url": "https://www.cretemarathon.com",
+  "title": "Katerini",
+  "likes" : 10001,
+  "year" : 1997
+}
+
+
+
