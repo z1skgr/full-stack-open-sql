@@ -7,7 +7,8 @@
     "jsonwebtoken": "^9.0.1",
     "nodemon": "^3.0.1",
     "pg": "^8.11.2",
-    "sequelize": "^6.32.1"
+    "sequelize": "^6.32.1",
+    "umzug": "^3.3.1"
   },
   "name": "full-stack-open-sql",
   "description": "",

@@ -54,7 +54,7 @@ content-type: application/json
 ###  
 POST http://localhost:3001/api/blogs HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImN6aXNrYXNAdHVjLmdyIiwiaWQiOjEwLCJpYXQiOjE2OTExMzcxNDh9.5K5WHMHSMlDUPPSdVoipMTWmUAUtW7IwqPCM7NLOvlQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImN6aXNrYXNAdHVjLmdyIiwiaWQiOjIsImlhdCI6MTY5MTQwMDY5NX0.xqtg8W4TU3IlmEpirkZsI2_CrGwigCQVQ9M9o-_UJcA
 
 {
   "author": "E.Manarwlh",
@@ -66,7 +66,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImN6a
 ###  
 POST http://localhost:3001/api/blogs HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImN6aXNrYXNAdHVjLmdyIiwiaWQiOjEwLCJpYXQiOjE2OTExMzcxNDh9.5K5WHMHSMlDUPPSdVoipMTWmUAUtW7IwqPCM7NLOvlQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImN6aXNrYXNAdHVjLmdyIiwiaWQiOjIsImlhdCI6MTY5MTQwMDY5NX0.xqtg8W4TU3IlmEpirkZsI2_CrGwigCQVQ9M9o-_UJcA
 
 {
   "author": "MM.Manarwlh",
@@ -74,3 +74,29 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImN6a
   "title": "Katerini",
   "likes" : 10000
 }
+
+
+###
+POST http://localhost:3001/api/blogs HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1NYW5hcndsaEBhcHRoLmdyIiwiaWQiOjEsImlhdCI6MTY5MTQwMDY2NH0._fHIcHyYxh3IhshaMWKucLfaepmz3rg_wuf9-VH-rzU
+
+{
+  "author": "E.Manarwlh",
+  "url": "https://www.cretemarathon.com",
+  "title": "Crete",
+  "likes" : 1000
+}
+
+###  
+POST http://localhost:3001/api/blogs HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1NYW5hcndsaEBhcHRoLmdyIiwiaWQiOjEsImlhdCI6MTY5MTQwMDY2NH0._fHIcHyYxh3IhshaMWKucLfaepmz3rg_wuf9-VH-rzU
+
+{
+  "author": "MM.Manarwlh",
+  "url": "https://www.cretemarathon.com",
+  "title": "Katerini",
+  "likes" : 10000
+}
+
