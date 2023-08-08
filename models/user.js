@@ -32,7 +32,10 @@ User.init({
 }, {
   sequelize,
   underscored: true,
-  modelName: 'user'
+  modelName: 'user',
+  defaultScope: {
+    attributes: { exclude: ['createdAt', 'updatedAt'] },
+  },
 })
 
 module.exports = User

@@ -43,6 +43,9 @@ Blog.init(
     sequelize,
     underscored: true,
     modelName: 'blog',
+    defaultScope: {
+      attributes: { exclude: ['createdAt', 'updatedAt'] },
+    },
   }
 );
 

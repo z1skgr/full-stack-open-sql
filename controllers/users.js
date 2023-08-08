@@ -6,13 +6,18 @@ const { Blog } = require('../models');
 
 usersRouter.get('/', async (req, res) => {
   const users = await User.findAll({
-    include: {
-      model: Blog,
-      attributes: { exclude: ['userId'] }
-    }
-  })
-  res.json(users)
-})
+    attributes: ['id', 'name', 'username'],
+    include: [
+      {
+        model: Blog,
+        attributes: { exclude: ['userId', 'createdAt', 'updatedAt'] },
+      },
+    ],
+  });
+
+  res.json(users);
+});
+
 
 usersRouter.get('/:id', async (req, res) => {
   const { id } = req.params;
@@ -22,8 +27,11 @@ usersRouter.get('/:id', async (req, res) => {
     include: [
       {
         model: Blog,
-        attributes: { exclude: ['userId'] },
-        
+        as: 'readings',
+        attributes: { exclude: ['userId', 'createdAt', 'updatedAt'] },
+        through: {
+          attributes: [],
+        },
       },
     ],
   });
