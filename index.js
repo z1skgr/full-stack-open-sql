@@ -4,11 +4,10 @@ require('express-async-errors');
 const { PORT } = require('./util/config');
 const { connectToDatabase } = require('./util/db');
 const blogsRouter = require('./controllers/blogs');
-const usersRouter = require('./controllers/users');
-const loginRouter = require('./controllers/login');
-const authorsRouter = require('./controllers/authors');
+const usersRouter = require('./controllers/users')
+const loginRouter = require('./controllers/login')
+const authorsRouter = require('./controllers/authors')
 const readingListRouter = require('./controllers/readingLists');
-
 
 const { errorHandler } = require('./util/middleware');
 

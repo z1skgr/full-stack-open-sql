@@ -40,6 +40,7 @@ Blog.init(
     },
   },
   {
+    
     sequelize,
     underscored: true,
     modelName: 'blog',

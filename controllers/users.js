@@ -3,21 +3,22 @@ const bcrypt = require('bcrypt')
 
 const { User } = require('../models');
 const { Blog } = require('../models');
+const ReadingList = require('../models/reading_list');
+
 
 usersRouter.get('/', async (req, res) => {
   const users = await User.findAll({
-    attributes: ['id', 'name', 'username'],
-    include: [
-      {
-        model: Blog,
+    include: {
+      model: Blog,
+        as: 'readings',
         attributes: { exclude: ['userId', 'createdAt', 'updatedAt'] },
-      },
-    ],
-  });
-
-  res.json(users);
-});
-
+        through: {
+          attributes: [],
+        },
+    }
+  })
+  res.json(users)
+})
 
 usersRouter.get('/:id', async (req, res) => {
   const { id } = req.params;
@@ -32,7 +33,15 @@ usersRouter.get('/:id', async (req, res) => {
         through: {
           attributes: [],
         },
+        include: [
+          {
+            model: ReadingList,
+            attributes: ['read', 'id'],
+          },
+        ],
+        
       },
+      
     ],
   });
 
