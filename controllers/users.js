@@ -10,11 +10,7 @@ usersRouter.get('/', async (req, res) => {
   const users = await User.findAll({
     include: {
       model: Blog,
-        as: 'readings',
         attributes: { exclude: ['userId', 'createdAt', 'updatedAt'] },
-        through: {
-          attributes: [],
-        },
     }
   })
   res.json(users)
@@ -22,9 +18,11 @@ usersRouter.get('/', async (req, res) => {
 
 usersRouter.get('/:id', async (req, res) => {
   const { id } = req.params;
-
+  let where = {}
   const user = await User.findByPk(id, {
+    where: { id: req.params.userId },
     attributes: ['name', 'username'],
+    where,
     include: [
       {
         model: Blog,
@@ -33,22 +31,28 @@ usersRouter.get('/:id', async (req, res) => {
         through: {
           attributes: [],
         },
+        
         include: [
           {
             model: ReadingList,
             attributes: ['read', 'id'],
+            where: req.query?.read != null
+            ? { read: req.query.read }
+            : { },
           },
+          
         ],
         
       },
       
     ],
+    
   });
 
   if (user) {
     res.json(user);
   } else {
-    res.status(404).end();
+    res.status(404).json({ error: `User with id ${id} not found`});
   }
 });
 
