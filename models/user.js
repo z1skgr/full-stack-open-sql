@@ -29,6 +29,11 @@ User.init({
       is: /\$[a-z0-9-]+\$[0-9A-Za-z./+=,$-]+$/i,
     },
   },
+  enabled: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+  },
 }, {
   
   sequelize,

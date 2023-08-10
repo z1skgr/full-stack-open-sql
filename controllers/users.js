@@ -21,7 +21,7 @@ usersRouter.get('/:id', async (req, res) => {
   let where = {}
   const user = await User.findByPk(id, {
     where: { id: req.params.userId },
-    attributes: ['name', 'username'],
+    attributes: ['name', 'username','enabled'],
     where,
     include: [
       {
