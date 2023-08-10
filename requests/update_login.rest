@@ -17,3 +17,12 @@ content-type: application/json
   "username": "MManarwlh@apth.gr",
   "password":"mpd"
 }
+
+###
+POST http://localhost:3001/api/login HTTP/1.1
+content-type: application/json
+
+{
+  "username": "ssavaidis@tuc.gr",
+  "password":"del"
+}

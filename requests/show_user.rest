@@ -10,3 +10,6 @@ GET http://localhost:3001/api/users/4
 
 ###
 GET http://localhost:3001/api/users/2?read=true
+
+###
+GET http://localhost:3001/api/users/4?read=true

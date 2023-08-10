@@ -5,6 +5,8 @@ const bcrypt = require('bcrypt');
 const { SECRET } = require('../util/config')
 const User = require('../models/user')
 
+const { v4: uuidv4 } = require('uuid');
+
 loginRouter.post('/', async (req, res ) => {
 const body = req.body;
 
@@ -27,7 +29,10 @@ const body = req.body;
     id: user.id,
   };
 
-  const token = jwt.sign(loginUser, SECRET);
+  const token = jwt.sign(loginUser, SECRET,  {
+    expiresIn: '1d',
+    jwtid: uuidv4(),
+  });
 
   res.status(200).json({ token, ...loginUser });
 })

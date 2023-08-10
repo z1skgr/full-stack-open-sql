@@ -11,3 +11,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1NY
 content-type: application/json
 
 {  "read": "false" }
+
+
+###
+PUT http://localhost:3001/api/readinglists/7 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNzYXZhaWRpc0B0dWMuZ3IiLCJpZCI6NCwiaWF0IjoxNjkxNjY1MTkzLCJleHAiOjE2OTE3NTE1OTMsImp0aSI6IjQwNjNhMDBjLWFkYmItNDk5Yy1iNDk3LTY1M2UzNWUwNTQ5ZiJ9.y0Lcgf9wt-BapP8SntyYmDPxWmWkwUh-HQA_CDDdDi8
+content-type: application/json
+
+{  "read": "true" }

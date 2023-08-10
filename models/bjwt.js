@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const { sequelize } = require('../util/db');
 
-class BlacklistJwt extends Model {}
+class bjwt extends Model {}
 
-BlacklistJwt.init(
+bjwt.init(
   {
     id: {
       type: DataTypes.UUID,
@@ -14,8 +14,8 @@ BlacklistJwt.init(
     sequelize,
     underscored: true,
     timestamps: true,
-    modelName: 'blacklistJwt',
+    modelName: 'bjwt',
   }
 );
 
-module.exports = BlacklistJwt;
+module.exports = bjwt;

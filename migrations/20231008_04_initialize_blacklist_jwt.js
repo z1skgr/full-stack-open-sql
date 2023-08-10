@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = {
   up: async ({ context: queryInterface }) => {
-    await queryInterface.createTable('blacklist_jwts', {
+    await queryInterface.createTable('bjwts', {
       id: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -12,6 +12,6 @@ module.exports = {
     });
   },
   down: async ({ context: queryInterface }) => {
-    await queryInterface.dropTable('blacklist_jwts');
+    await queryInterface.dropTable('bjwts');
   },
 };

@@ -103,14 +103,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1NY
 ###  
 POST http://localhost:3001/api/blogs HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1NYW5hcndsaEBhcHRoLmdyIiwiaWQiOjEsImlhdCI6MTY5MTQwMDY2NH0._fHIcHyYxh3IhshaMWKucLfaepmz3rg_wuf9-VH-rzU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNzYXZhaWRpc0B0dWMuZ3IiLCJpZCI6NCwiaWF0IjoxNjkxNjY1MTkzLCJleHAiOjE2OTE3NTE1OTMsImp0aSI6IjQwNjNhMDBjLWFkYmItNDk5Yy1iNDk3LTY1M2UzNWUwNTQ5ZiJ9.y0Lcgf9wt-BapP8SntyYmDPxWmWkwUh-HQA_CDDdDi8
 
 {
-  "author": "MM.Manarwlh",
-  "url": "https://www.cretemarathon.com",
+  "author": "Panagiota poga",
+  "url": "https://www.apth.com",
   "title": "Katerini",
-  "likes" : 10001,
-  "year" : 1997
+  "likes" : 20001,
+  "year" : 1995
 }
 
 
